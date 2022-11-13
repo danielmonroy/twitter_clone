@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  body: MyText
+  retweet: false
+  original_tweet_id: 
+
+two:
+  user: two
+  body: MyText
+  retweet: false
+  original_tweet_id: 
