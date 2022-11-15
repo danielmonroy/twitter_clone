@@ -3,7 +3,7 @@ class CreateTweets < ActiveRecord::Migration[5.2]
     create_table :tweets do |t|
       t.references :user, foreign_key: true
       t.text :body
-      t.boolean :retweet
+      t.boolean :retweet, default: false
       t.bigint :original_tweet_id
 
       t.timestamps

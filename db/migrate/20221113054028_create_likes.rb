@@ -4,5 +4,7 @@ class CreateLikes < ActiveRecord::Migration[5.2]
       t.references :tweet, foreign_key: true
       t.references :user, foreign_key: true
     end
+
+    add_index :likes, [:tweet_id, :user_id], unique: true
   end
 end

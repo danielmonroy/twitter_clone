@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  resources :followers
+  get '/:username', to: 'tweets#show'
+  resources :follows do
+    member do
+      get 'followers'
+      get 'followed'
+    end
+  end
   resources :likes
   resources :tweets
   devise_for :users
-  root 'pages#index'
+  root 'tweets#index'
 end

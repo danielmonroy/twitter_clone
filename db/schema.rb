@@ -12,16 +12,18 @@
 
 ActiveRecord::Schema.define(version: 2022_11_13_054314) do
 
-  create_table "followers", force: :cascade do |t|
+  create_table "follows", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
-    t.index ["followed_id"], name: "index_followers_on_followed_id"
-    t.index ["follower_id"], name: "index_followers_on_follower_id"
+    t.index ["followed_id"], name: "index_follows_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_follows_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
   create_table "likes", force: :cascade do |t|
     t.integer "tweet_id"
     t.integer "user_id"
+    t.index ["tweet_id", "user_id"], name: "index_likes_on_tweet_id_and_user_id", unique: true
     t.index ["tweet_id"], name: "index_likes_on_tweet_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
@@ -29,7 +31,7 @@ ActiveRecord::Schema.define(version: 2022_11_13_054314) do
   create_table "tweets", force: :cascade do |t|
     t.integer "user_id"
     t.text "body"
-    t.boolean "retweet"
+    t.boolean "retweet", default: false
     t.bigint "original_tweet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 2022_11_13_054314) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
