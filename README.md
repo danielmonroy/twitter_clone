@@ -5,6 +5,7 @@
 ```
 $ bundle
 $ rails db:migrate
+$ rails db:seed
 ```
 
 ## Run locally
