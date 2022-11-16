@@ -1,24 +1,21 @@
-# README
+# Twitter Clone Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Project setup
 
-Things you may want to cover:
+```
+$ bundle
+$ rails db:migrate
+```
 
-* Ruby version
+## Run locally
 
-* System dependencies
+```
+$ rails s
+```
+Visit `localhost:3000` to start tweeting!
 
-* Configuration
+## Execute tests
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ rspec .
+```

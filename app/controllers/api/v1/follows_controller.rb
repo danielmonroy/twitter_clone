@@ -1,4 +1,4 @@
-class FollowsController < ApplicationController
+class Api::V1::FollowsController < ApplicationController
   before_action :set_user
 
   def followers
@@ -9,12 +9,12 @@ class FollowsController < ApplicationController
     render json: @user.followed.to_json
   end
 
-  def unfollow
+  def destroy
     Follow.where(follower_id: current_user.id, followed_id: params["followed_id"]).take
   end
 
   def create
-    follow = Follow.new(follower_id: @user.id, followed_id: )
+    follow = Follow.new(follower_id: current_user.id, followed_id: params['id'])
     if follow.save
       render status: 200
     else
@@ -25,6 +25,6 @@ class FollowsController < ApplicationController
   private
 
   def set_user
-    @user = User.find_by(id: params['id']) || current_user
+    @user = User.find_by(id: params['id'])
   end
 end

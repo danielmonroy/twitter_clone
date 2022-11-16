@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class Api::V1::LikesController < ApplicationController
   before_action :set_tweet
 
   def like
@@ -8,9 +8,9 @@ class LikesController < ApplicationController
   def unlike
     like = Like.where(tweet_id: @tweet.id, user_id: current_user.id).take
     if like && like.destroy
-      render status: 200
+      return head :ok
     else
-      render status: 500
+      return head 500
     end
   end
 

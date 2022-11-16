@@ -11,10 +11,10 @@ class User < ApplicationRecord
   has_many :liked_tweets, through: :likes, source: :tweet
 
   def followers
-    User.where(id: Follow.user_followers(self.id).pluck(:id))
+    User.where(id: Follow.user_followers(self.id).pluck(:follower_id))
   end
 
   def followed
-    User.where(id: Follow.user_followed(self.id).pluck(:id))
+    User.where(id: Follow.user_followed(self.id).pluck(:followed_id))
   end
 end

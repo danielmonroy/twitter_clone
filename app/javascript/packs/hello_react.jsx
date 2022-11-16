@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Counter from '../components/Counter';
+import Twitter from '../components/Twitter';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Counter/>,
+    <Twitter/>,
     document.body.appendChild(document.createElement('div')),
   )
 })
