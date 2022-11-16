@@ -1,0 +1,34 @@
+.sideBar {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.mainSection {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.retweetBanner {
+  font-size: small;
+  color: green;
+  margin: 0;
+}
+
+h4 {
+  margin: 5px 0px 5px 0;
+}
+
+.muted {
+  color: #888;
+  font-weight: 200;
+}
+
+.tweetBox {
+  padding: 20px 0 15px 0;
+}
+
+hr {
+  margin-bottom: 0;
+}

@@ -6,6 +6,7 @@
 $ bundle
 $ rails db:migrate
 $ rails db:seed
+$ yarn install
 ```
 
 ## Run locally
